@@ -1,0 +1,705 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --blue: #113e75;
+    --red: #e4133b;
+    --white: #f5f5f5;
+    --black: #1b1b1b;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ganske normal header m. logo og menu, samt en hamburger til mobilskærme */
+header {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3.5em;
+    border-bottom: 2px solid var(--black);
+    position: sticky;
+    top: 0;
+    /* z-index sættes på, da kortene længere nede på siden springer ud over headeren hvis z-index ikke er påført headeren */
+    z-index: 100;
+}
+
+header .logo img {
+    width: 8vw;
+    min-width: 80px;
+    height: auto;
+}
+
+header .hamburger {
+    display: none;
+}
+
+header .hamburger img {
+    transform: scale(0.4);
+}
+
+header ul {
+    display: flex;
+    gap: 4em;
+}
+
+header ul li {
+    list-style: none;
+    transition: 0.25s ease-in-out;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: var(--black);
+    font-family: 'Sora', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Hover effekt m. border left skiftevis mellem blå og rød, som symbol på det amerikanske flags farver */
+header ul li:nth-child(1):hover {
+    border-left: 4px solid var(--blue);
+}
+
+header ul li:nth-child(2):hover {
+    border-left: 4px solid var(--red);
+}
+
+header ul li:nth-child(3):hover {
+    border-left: 4px solid var(--blue);
+}
+
+header ul li:nth-child(4):hover {
+    border-left: 4px solid var(--red);
+}
+
+/* Hover effekt der forstørre menupunkterne */
+header ul li:hover {
+    transform: scale(1.2);
+}
+
+/* Main */
+main {
+    width: 100%;
+}
+
+main section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    overflow-x: hidden;
+}
+
+/* Text shadow generator fra https://owumaro.github.io/text-stroke-generator/ - bliver brugt til at skabe kontrast mellem h1 og baggrunden på diverse sections. */
+main section h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    text-align: left;
+    text-shadow: rgb(255, 255, 255) 1px 0px 0px, rgb(255, 255, 255) 1.75px 0.953125px 0px, rgb(255, 255, 255) 1.078125px 1.671875px 0px, rgb(255, 255, 255) 0.140625px 1.984375px 0px, rgb(255, 255, 255) -0.828125px 1.8125px 0px, rgb(255, 255, 255) -1.59375px 1.1875px 0px, rgb(255, 255, 255) -1.96875px 0.28125px 0px, rgb(255, 255, 255) -1.859375px -0.6875px 0px, rgb(255, 255, 255) -1.296875px -1.5px 0px, rgb(255, 255, 255) -0.40625px -1.953125px 0px, rgb(255, 255, 255) 0.5625px -1.90625px 0px, rgb(255, 255, 255) 1.40625px -1.40625px 0px, rgb(255, 255, 255) 1.90625px -0.546875px 0px;
+    margin: 0;
+    margin-bottom: 8%;
+}
+
+main .hero-section .hero-div .hero-mobile {
+    display: none;
+}
+
+main section div img {
+    width: 100%;
+    height: auto;
+}
+
+main section .text-container {
+    margin: 5%;
+}
+
+/* Margin på billedets div så der er lidt whitespace ud til kanten når man mindsker sin viewport */
+main section:nth-child(2) div .guitar {
+    margin-right: 5%;
+    transform: scale(0.90);
+}
+
+main section .text-container p {
+    max-width: 40vw;
+    min-width: 300px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Repeating linear gradient til at lave en baggrund der symboliserer de røde og hvide striber i USA's flag */
+main section:nth-child(3) {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 80px, #e4133b 80px, #e4133b 160px);
+    background-color: #ffffff;
+    flex-direction: column;
+}
+
+main section:nth-child(3) h1 {
+    background-color: var(--red);
+    border: 2px solid var(--black);
+    padding: 0.25em;
+    margin: 0;
+    text-align: center
+}
+
+/* CSS for kortene med events - "cards" */
+main section .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6em;
+    margin-bottom: 5%;
+}
+
+main section .card-container .card {
+    width: 280px;
+    height: 400px;
+    background-color: var(--white);
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 5px #3C4856; 
+    box-shadow: 5px 5px 15px 5px #3C4856;
+    text-decoration: none;
+    color: var(--black);
+    font-family: 'Poppins', sans-serif;
+    transition: 0.4s ease-in-out;
+}
+
+main section .card-container .card p {
+    font-size: 0.85rem;
+}
+
+main section .card-container .card .card-img img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+main section .card-container .card .card-content {
+    margin: 1em;
+}
+
+/* Billedet i "konkurrence" section bliver skaleret ned til passende størrelse og får lidt margin-right så der er lidt whitespace når man mindsker sin viewport */
+main section:nth-child(4) div .winner {
+    margin-right: 5%;
+    transform: scale(0.65);
+}
+
+main section:nth-child(4) div a {
+    color: var(--blue);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+main section:nth-child(5) {
+    background-color: var(--blue);
+    flex-direction: column;
+}
+
+main section:nth-child(5) h1 {
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+/* Billedcollage m. flex-wrap: wrap så billederne indordner sig efter sin viewport.
+OBS! Bevidst valgt ikke at lave yderligere flex i media querys, hvilket ville kunne få dem enkeltvis under hinanden, men dette ville give alt for meget scroll på en forside, derfor valgt at gå med mindre billeder og mindre scroll */
+main section:nth-child(5) .column-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em;
+    gap: 2em;
+}
+
+main section:nth-child(5) .column-container .column {
+    flex: 30%;
+}
+
+main section:nth-child(5) .column-container .column img {
+    margin-bottom: 1.5em;
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--white);
+}
+
+footer div {
+    margin: 1em;
+}
+
+footer div h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--black);
+    width: fit-content;
+}
+
+footer div p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+footer div a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: black;
+    line-height: 1.6;
+}
+
+footer div a img {
+    height: 25px;
+    width: auto;
+    margin-top: 2.5%;
+}
+
+/* Ussel lidt margin-left på instagram ikonet for at skabe lidt mellemrum */
+footer div a:last-child {
+    margin-left: 2%;
+}
+
+/* Menu.html */
+.menu-wrapper {
+    display: flex;
+    justify-content: left;
+}
+
+.menu-wrapper ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    margin-top: 3em;
+}
+
+.menu-wrapper ul li {
+    list-style: none;
+}
+
+.menu-wrapper ul li:nth-child(1) {
+    border-left: 4px solid var(--blue);
+}
+
+.menu-wrapper ul li:nth-child(2) {
+    border-left: 4px solid var(--red);
+}
+
+.menu-wrapper ul li:nth-child(3) {
+    border-left: 4px solid var(--blue);
+}
+
+.menu-wrapper ul li:nth-child(4) {
+    border-left: 4px solid var(--red);
+}
+
+.menu-wrapper ul li:nth-child(5) {
+    border-left: 4px solid var(--blue);
+}
+
+.menu-wrapper ul li:nth-child(6) {
+    border-left: 4px solid var(--red);
+}
+
+.menu-wrapper ul li a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* Priser.html */
+.pris-section {
+    flex-direction: column;
+}
+
+.prisskilt {
+    margin-top: 10%;
+}
+
+.tilbage-knap {
+    background-color: var(--black);
+    color: white;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem;
+    padding: 1em;
+    position: fixed;
+    bottom: 5%;
+}
+
+/* Elvis.html */
+iframe {
+    margin: 5%;
+    border-radius: 15px;
+    width: 400px;
+    border: none;
+}
+
+.elvis-section {
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.elvis-section h1 span:first-child {
+    color: var(--blue);
+}
+
+.elvis-section h1 span:last-child {
+    color: var(--red);
+}
+
+.elvis-section:first-child p {
+    min-width: 100%;
+}
+
+.elvis-section:last-child {
+    flex-direction: column;
+}
+
+.elvis-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.85rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.elvis-section blockquote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 0;
+}
+
+.elvis-wrapper {
+    display: flex;
+    gap: 2em;
+    margin: 2em;
+}
+
+/* Events.html */
+.event-section {
+    flex-direction: column;
+}
+
+.event-section .text-container h1, 
+.event-section .text-container p {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.event-section h1 span:first-child {
+    color: var(--blue);
+}
+
+.event-section h1 span:last-child {
+    color: var(--red);
+}
+
+.event-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+}
+
+.event-section .container a {
+    width: 45%;
+    margin: 2em;
+    text-decoration: none;
+    color: var(--black);
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.4s ease-in-out;
+}
+
+.event-section .container a:nth-child(1) {
+    border: 6px solid var(--blue);
+}
+
+.event-section .container a:nth-child(2) {
+    border: 6px solid var(--red);
+}
+
+.event-section .container a:nth-child(3) {
+    border: 6px solid var(--red);
+}
+
+.event-section .container a:nth-child(4) {
+    border: 6px solid var(--blue);
+}
+
+.event-section .container a h2,
+.event-section .container a p {
+    font-family: 'Poppins', sans-serif;
+    margin: 1em 2em;
+}
+
+.event-section .container a:nth-child(1) p:last-child {
+    background-color: var(--blue);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em 1em;
+}
+
+.event-section .container a:nth-child(2) p:last-child {
+    background-color: var(--red);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em 1em;
+}
+
+.event-section .container a:nth-child(3) p:last-child {
+    background-color: var(--red);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em 1em;
+}
+
+.event-section .container a:nth-child(4) p:last-child {
+    background-color: var(--blue);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em 1em;
+}
+
+.event-section .container a p:last-child {
+    color: var(--white);
+    margin: 2em;
+}
+
+/* Temaaften.html */ 
+main section .text-container .temaaften {
+    margin-bottom: 0;
+}
+
+main section .text-container h6 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-top: 0;
+    border-bottom: 2px solid var(--black);
+}
+
+main section .text-container .info span {
+    font-weight: bold;
+}
+
+/* Contact.html */
+main section .text-container div a {
+    text-decoration: none;
+}
+
+main section .text-container div a:last-child {
+    margin-left: 1.5%;
+}
+
+main section .text-container div a img {
+    height: 40px;
+    width: auto;
+}
+
+/* Media query for normal mobil version */
+@media screen and (max-width: 768px) {
+
+    /* Media query's for header */
+    header {
+        padding: 0;
+    }
+
+    header .logo {
+        margin: 1em;
+    }
+    
+    header .hamburger {
+        display: block;
+    }
+
+    header ul li {
+        display: none;
+    }
+    
+    /* Media query's for main */
+    main .hero-section .hero-div img:first-child {
+        display: none;
+    }
+    
+    main .hero-section .hero-div .hero-mobile {
+        display: block;
+    }
+    
+    main section:nth-child(2) div .guitar {
+        display: none;
+    }
+
+    main section:nth-child(4) div .winner {
+        display: none;
+    }
+
+    main section {
+        gap: 0;
+    }
+
+    main section .card-container {
+        margin-top: 1.5em;
+        gap: 3em;
+    }
+
+    main section .card-container .card:last-child {
+        margin-bottom: 2em;
+    }
+
+    /* Media query for footeren */
+    footer div:first-child {
+        display: none;
+    }
+
+    footer div {
+        margin: 0.5em 1.25em 1em;
+    }
+
+    footer div h1 {
+        font-size: 1rem;
+    }
+
+    footer div p {
+        font-size: 0.6rem;
+    }
+
+    footer div a {
+        font-size: 0.6rem;
+    }
+
+    /* Elvis.html */
+    .elvis-wrapper {
+        flex-direction: column;
+    }
+
+    /* Events.html */
+    /* Bytter baggrundsfarve og border-farve på tredje og fjerde "kort" under event-fanen, så der stadig skiftes mellem blå og rød på mobil, samtidig med det fungerer på laptop også */
+    .event-section .container a:nth-child(3) p:last-child {
+        background-color: var(--blue);
+    }
+    
+    .event-section .container a:nth-child(4) p:last-child {
+        background-color: var(--red);
+    }
+
+    .event-section .container a:nth-child(3) {
+        border-color: var(--blue);
+    }
+    
+    .event-section .container a:nth-child(4) {
+        border-color: var(--red);
+    }
+
+    .event-section .container a {
+        min-width: 300px;
+    }
+
+}
+
+/* Media query for de mindre mobil skærme */
+@media screen and (max-width: 375px) {
+    main section h1 {
+        font-size: 1.85rem;
+    }
+
+    main section p {
+        font-size: 0.8rem;
+    }
+
+    main section .text-container h1 {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+
+    /* Mindre "kort" og mellemrum mellem dem */
+    main section .card-container .card {
+        transform: scale(0.8);
+    }
+
+    main section .card-container {
+        gap: 0;
+    }
+
+
+    /* Media query for footer */
+    footer div h1 {
+        font-size: 0.9rem;
+    }
+
+    footer div p {
+        font-size: 0.5rem;
+    }
+
+    footer div a {
+        font-size: 0.5rem;
+    }
+
+
+    /* Media querys for Menu side */
+    .menu-wrapper ul li a {
+        font-size: 1rem;
+    }
+
+    /* Contact.html */
+    main section .text-container div a img {
+        height: 30px;
+        width: auto;
+    }
+}
+
+/* Media query for den mindste mobil skærm (iPhone SE evt.) */
+@media screen and (max-width: 320px) {
+    /* Media query for footer */
+    footer div h1 {
+        font-size: 0.7rem;
+    }
+
+    footer div p {
+        font-size: 0.35rem;
+    }
+
+    footer div a {
+        font-size: 0.35rem;
+    }
+
+    footer div a img {
+        height: 20px;
+    }
+
+    /* Events.html */
+    .event-section .container a {
+        min-width: 280px;
+    }
+}
+
+/* Media query for laptop version */
+@media screen and (min-width: 768px) {
+    /* Hover effekt der forstørrer "kortene" på laptop version på forsiden */
+    main section .card-container .card:hover {
+        transform: scale(1.1);
+    }
+
+    /* Events.html */
+    .event-section .container a:hover {
+        transform: scale(1.05);
+    }
+    
+}
